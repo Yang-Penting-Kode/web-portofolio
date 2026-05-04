@@ -34,7 +34,7 @@ export function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <a href="#top" className="flex items-center gap-2 group">
-          <span className="relative inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-secondary text-primary-foreground font-bold text-sm shadow-[0_0_24px_-4px_var(--color-cyan-glow)]">
+          <span className="relative inline-flex h-8 w-8 items-center justify-center rounded-lg bg-linear-to-br from-primary to-secondary text-primary-foreground font-bold text-sm shadow-[0_0_24px_-4px_var(--color-cyan-glow)]">
             YP
           </span>
           <span className="font-semibold tracking-tight">

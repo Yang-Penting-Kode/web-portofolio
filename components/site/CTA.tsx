@@ -6,7 +6,7 @@ export function CTA() {
     <section className="relative py-24 md:py-32">
       <div className="max-w-5xl mx-auto px-6">
         <Reveal>
-          <div className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-surface-elevated via-surface to-background p-10 md:p-16 text-center">
+          <div className="relative overflow-hidden rounded-3xl border border-border bg-linear-to-br from-surface-elevated via-surface to-background p-10 md:p-16 text-center">
             <div className="absolute inset-0 grid-bg opacity-50 pointer-events-none" />
             <div className="absolute -top-24 left-1/2 -translate-x-1/2 h-72 w-72 rounded-md bg-primary/30 blur-[100px] animate-glow-pulse" />
             <div className="absolute bottom-0 right-0 h-60 w-60 rounded-md bg-secondary/20 blur-[100px]" />

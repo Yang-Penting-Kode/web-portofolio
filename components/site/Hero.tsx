@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
 
 const phrases = ["Website", "Mobile App", "SaaS Platform", "API Backend"];
@@ -9,6 +9,7 @@ export function Hero() {
   const [idx, setIdx] = useState(0);
   const [text, setText] = useState("");
   const [deleting, setDeleting] = useState(false);
+  const pauseRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const current = phrases[idx];
@@ -17,7 +18,9 @@ export function Hero() {
       if (!deleting) {
         const next = current.slice(0, text.length + 1);
         setText(next);
-        if (next === current) setTimeout(() => setDeleting(true), 1400);
+        if (next === current) {
+          pauseRef.current = setTimeout(() => setDeleting(true), 1400);
+        }
       } else {
         const next = current.slice(0, text.length - 1);
         setText(next);
@@ -27,7 +30,13 @@ export function Hero() {
         }
       }
     }, speed);
-    return () => clearTimeout(t);
+    return () => {
+      clearTimeout(t);
+      if (pauseRef.current) {
+        clearTimeout(pauseRef.current);
+        pauseRef.current = null;
+      }
+    };
   }, [text, deleting, idx]);
 
   return (
@@ -35,7 +44,7 @@ export function Hero() {
       {/* background layers */}
       <div className="absolute inset-0 grid-bg pointer-events-none" />
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-32 left-1/2 -translate-x-1/2 h-[480px] w-[480px] rounded-md bg-primary/20 blur-[120px] animate-glow-pulse" />
+        <div className="absolute -top-32 left-1/2 -translate-x-1/2 h-120 w-120 rounded-md bg-primary/20 blur-[120px] animate-glow-pulse" />
         <div className="absolute top-40 right-10 h-72 w-72 rounded-md bg-secondary/20 blur-[100px] animate-glow-pulse" style={{ animationDelay: "1.5s" }} />
         <div className="absolute bottom-0 left-10 h-64 w-64 rounded-md bg-accent/15 blur-[100px] animate-glow-pulse" style={{ animationDelay: "2.5s" }} />
       </div>
@@ -60,7 +69,7 @@ export function Hero() {
         <h1 className="font-display text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-[1.05] animate-fade-up">
           Bangun{" "}
           <span className="text-gradient">{text}</span>
-          <span className="inline-block w-[3px] h-[0.9em] align-[-0.1em] bg-primary ml-1 animate-blink" />
+          <span className="inline-block w-0.75 h-[0.9em] align-[-0.1em] bg-primary ml-1 animate-blink" />
           <br />
           Tanpa Ribet.
         </h1>

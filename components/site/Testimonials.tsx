@@ -25,7 +25,7 @@ const items = [
 
 export function Testimonials() {
   return (
-    <section className="relative py-24 md:py-32">
+    <section id="testimonials" className="relative py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeading
           eyebrow="Testimonials"

@@ -27,7 +27,7 @@ const items = [
 
 export function WhyUs() {
   return (
-    <section className="relative py-24 md:py-32">
+    <section id="why-us" className="relative py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeading
           eyebrow="Why Choose Us"
@@ -43,7 +43,7 @@ export function WhyUs() {
           {items.map((it, i) => (
             <Reveal key={it.title} delay={i * 80}>
               <div className="card-glow card-glow-hover rounded-2xl p-6 h-full">
-                <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 border border-primary/20 text-primary mb-4">
+                <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-linear-to-br from-primary/20 to-secondary/20 border border-primary/20 text-primary mb-4">
                   <it.icon size={20} />
                 </div>
                 <h3 className="font-semibold">{it.title}</h3>
