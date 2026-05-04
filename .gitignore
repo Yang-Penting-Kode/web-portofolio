@@ -32,6 +32,7 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+.env*.local
 
 # vercel
 .vercel
@@ -43,4 +44,5 @@ next-env.d.ts
 # AI agent skills (local only, not for version control)
 .agents/
 skills-lock.json
-.env*.local
+AGENTS.md
+CLAUDE.md
