@@ -44,7 +44,7 @@ export function Pricing() {
                 className={cn(
                   "rounded-2xl p-7 h-full relative card-glow card-glow-hover",
                   p.highlighted &&
-                    "border-primary/60 bg-gradient-to-b from-primary/10 to-transparent shadow-[0_0_60px_-20px_var(--color-cyan-glow)]",
+                    "border-primary/60 bg-linear-to-b from-primary/10 to-transparent shadow-[0_0_60px_-20px_var(--color-cyan-glow)]",
                 )}
               >
                 {p.highlighted && (

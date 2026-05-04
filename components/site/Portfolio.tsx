@@ -55,7 +55,7 @@ export function Portfolio() {
           {projects.map((p, i) => (
             <Reveal key={p.title} delay={(i % 3) * 100}>
               <article className="group card-glow card-glow-hover rounded-2xl overflow-hidden">
-                <div className={`relative aspect-[16/10] bg-gradient-to-br ${p.grad} bg-surface-elevated overflow-hidden`}>
+                <div className={`relative aspect-16/10 bg-linear-to-br ${p.grad} bg-surface-elevated overflow-hidden`}>
                   <div className="absolute inset-0 grid-bg opacity-60" />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <span className="font-display text-4xl font-bold text-foreground/80 group-hover:scale-110 transition-transform duration-500">

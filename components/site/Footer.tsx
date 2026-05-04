@@ -3,7 +3,7 @@ export function Footer() {
     <footer className="relative border-t border-border/60 py-12 mt-12">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="flex items-center gap-2">
-          <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-secondary text-primary-foreground font-bold text-sm">
+          <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-linear-to-br from-primary to-secondary text-primary-foreground font-bold text-sm">
             YP
           </span>
           <div>
