@@ -55,7 +55,7 @@ export function Contact() {
         <Reveal delay={200}>
           <div className="mt-12 text-center">
             <a
-              href="https://wa.me/6281234567890"
+              href="https://wa.me/62881010301313"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-md bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground transition hover:scale-[1.03] shadow-[0_0_40px_-8px_var(--color-cyan-glow)]"
