@@ -6,14 +6,14 @@ const channels = [
   {
     icon: Mail,
     label: "Email",
-    value: "hello@yangpentingkode.com",
-    href: "mailto:hello@yangpentingkode.com",
+    value: "yangpentingkode@gmail.com",
+    href: "mailto:yangpentingkode@gmail.com",
   },
   {
     icon: MessageCircle,
     label: "WhatsApp",
-    value: "+62 812 3456 7890",
-    href: "https://wa.me/6281234567890",
+    value: "+62 881 0103 01313",
+    href: "https://wa.me/62881010301313",
   },
   {
     icon: Instagram,
