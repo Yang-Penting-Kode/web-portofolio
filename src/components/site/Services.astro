@@ -1,0 +1,77 @@
+---
+import Reveal from "./Reveal.astro";
+import SectionHeading from "./SectionHeading.astro";
+import Icon from "@/components/ui/Icon.astro";
+
+const services = [
+  {
+    icon: "globe",
+    title: "Website Development",
+    desc: "Landing page, company profile, sampai web app kompleks dengan performa tingkat tinggi.",
+    color: "text-primary",
+    ring: "border-primary/30",
+  },
+  {
+    icon: "smartphone",
+    title: "Mobile App Development",
+    desc: "Aplikasi iOS & Android native maupun cross-platform dengan UX yang premium.",
+    color: "text-secondary",
+    ring: "border-secondary/30",
+  },
+  {
+    icon: "server",
+    title: "Backend & API",
+    desc: "Sistem backend yang aman, scalable, dan siap diintegrasikan dengan apa pun.",
+    color: "text-accent",
+    ring: "border-accent/30",
+  },
+  {
+    icon: "lightbulb",
+    title: "Tech Consulting",
+    desc: "Pilih stack tepat, arsitektur sehat, roadmap jelas — sebelum baris kode pertama ditulis.",
+    color: "text-primary",
+    ring: "border-primary/30",
+  },
+] as const;
+---
+
+<section id="services" class="relative py-24 md:py-32">
+  <div class="max-w-7xl mx-auto px-6">
+    <SectionHeading
+      eyebrow="Services"
+      description="Dari ide di kepala sampai produk live di tangan pengguna — semuanya kami kerjakan."
+    >
+      Layanan yang <span class="text-gradient">end-to-end</span>
+    </SectionHeading>
+
+    <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {
+        services.map((s, i) => (
+          <Reveal delay={i * 80}>
+            <div class="group card-glow card-glow-hover rounded-2xl p-6 h-full relative overflow-hidden">
+              <div
+                class:list={[
+                  "inline-flex h-12 w-12 items-center justify-center rounded-xl bg-surface-elevated border mb-5 group-hover:scale-110 transition-transform",
+                  s.ring,
+                  s.color,
+                ]}
+              >
+                <Icon name={s.icon} size={22} />
+              </div>
+              <h3 class="font-semibold text-lg flex items-center justify-between">
+                {s.title}
+                <Icon
+                  name="arrowUpRight"
+                  size={16}
+                  class="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition"
+                />
+              </h3>
+              <p class="mt-2 text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+              <div class="absolute -bottom-12 -right-12 h-32 w-32 rounded-md bg-primary/10 blur-2xl opacity-0 group-hover:opacity-100 transition" />
+            </div>
+          </Reveal>
+        ))
+      }
+    </div>
+  </div>
+</section>

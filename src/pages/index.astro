@@ -1,0 +1,36 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Navbar } from "@/components/site/Navbar";
+import { Hero } from "@/components/site/Hero";
+import About from "@/components/site/About.astro";
+import Services from "@/components/site/Services.astro";
+import Portfolio from "@/components/site/Portfolio.astro";
+import WhyUs from "@/components/site/WhyUs.astro";
+import Testimonials from "@/components/site/Testimonials.astro";
+import Pricing from "@/components/site/Pricing.astro";
+import CTA from "@/components/site/CTA.astro";
+import Contact from "@/components/site/Contact.astro";
+import Footer from "@/components/site/Footer.astro";
+import "../styles/global.css";
+---
+
+<Layout>
+  <div class="relative min-h-screen bg-background text-foreground overflow-hidden">
+    <div class="grid-bg-fixed" aria-hidden="true" />
+    <div class="relative z-10">
+      <Navbar client:load />
+      <main>
+        <Hero client:load />
+        <About />
+        <Services />
+        <Portfolio />
+        <WhyUs />
+        <Testimonials />
+        <Pricing />
+        <CTA />
+        <Contact />
+      </main>
+      <Footer />
+    </div>
+  </div>
+</Layout>

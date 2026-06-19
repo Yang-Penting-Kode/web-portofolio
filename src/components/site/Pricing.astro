@@ -1,0 +1,89 @@
+---
+import Reveal from "./Reveal.astro";
+import SectionHeading from "./SectionHeading.astro";
+import Icon from "@/components/ui/Icon.astro";
+
+const plans = [
+  {
+    name: "Starter",
+    price: "5jt",
+    desc: "Cocok untuk landing page & company profile.",
+    features: ["1 Landing Page", "Responsive Design", "Basic SEO", "Revisi 2x", "Support 14 hari"],
+    highlighted: false,
+  },
+  {
+    name: "Professional",
+    price: "15jt",
+    desc: "Untuk bisnis yang butuh web/app interaktif.",
+    features: ["Custom Web/App", "CMS Integration", "Advanced SEO", "Revisi 5x", "Support 60 hari", "Analytics setup"],
+    highlighted: true,
+  },
+  {
+    name: "Enterprise",
+    price: "Custom",
+    desc: "Solusi skala besar dengan kebutuhan kompleks.",
+    features: ["Tim dedicated", "Arsitektur scalable", "API & Integrasi", "Unlimited revisi", "Support 1 tahun", "SLA priority"],
+    highlighted: false,
+  },
+];
+---
+
+<section id="pricing" class="relative py-24 md:py-32">
+  <div class="max-w-7xl mx-auto px-6">
+    <SectionHeading
+      eyebrow="Pricing"
+      description="Mulai dari yang ringan sampai skala enterprise — pilih sesuai kebutuhan."
+    >
+      Paket yang <span class="text-gradient">fleksibel</span>
+    </SectionHeading>
+
+    <div class="mt-16 grid md:grid-cols-3 gap-6">
+      {
+        plans.map((p, i) => (
+          <Reveal delay={i * 100}>
+            <div
+              class:list={[
+                "rounded-2xl p-7 h-full relative card-glow card-glow-hover",
+                p.highlighted &&
+                  "border-primary/60 bg-linear-to-b from-primary/10 to-transparent shadow-[0_0_60px_-20px_var(--color-cyan-glow)]",
+              ]}
+            >
+              {p.highlighted && (
+                <span class="absolute -top-3 left-1/2 -translate-x-1/2 text-xs px-3 py-1 rounded-md bg-primary text-primary-foreground font-medium">
+                  Most Popular
+                </span>
+              )}
+              <h3 class="font-semibold text-lg">{p.name}</h3>
+              <p class="text-sm text-muted-foreground mt-1">{p.desc}</p>
+              <div class="mt-6 flex items-baseline gap-1">
+                <span class="text-4xl font-bold text-gradient">Rp {p.price}</span>
+                {p.price !== "Custom" && (
+                  <span class="text-muted-foreground text-sm">/project</span>
+                )}
+              </div>
+              <ul class="mt-6 space-y-3">
+                {p.features.map((f) => (
+                  <li class="flex items-start gap-2 text-sm">
+                    <Icon name="check" size={16} class="text-primary mt-0.5 shrink-0" />
+                    <span class="text-foreground/90">{f}</span>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="#contact"
+                class:list={[
+                  "mt-8 inline-flex w-full items-center justify-center rounded-md px-5 py-2.5 text-sm font-semibold transition",
+                  p.highlighted
+                    ? "bg-primary text-primary-foreground hover:opacity-90 shadow-[0_0_30px_-8px_var(--color-cyan-glow)]"
+                    : "border border-border text-foreground hover:border-primary/50 hover:text-primary",
+                ]}
+              >
+                Pilih {p.name}
+              </a>
+            </div>
+          </Reveal>
+        ))
+      }
+    </div>
+  </div>
+</section>

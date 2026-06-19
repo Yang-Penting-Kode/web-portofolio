@@ -1,0 +1,96 @@
+---
+import Reveal from "./Reveal.astro";
+import SectionHeading from "./SectionHeading.astro";
+import Icon from "@/components/ui/Icon.astro";
+
+const projects = [
+  {
+    title: "Lumen Commerce",
+    category: "E-Commerce Platform",
+    stack: ["Next.js", "Stripe", "Postgres"],
+    grad: "from-primary/40 via-secondary/30 to-transparent",
+  },
+  {
+    title: "Wanderly",
+    category: "Travel Booking App",
+    stack: ["React Native", "Node", "Mapbox"],
+    grad: "from-accent/40 via-primary/30 to-transparent",
+  },
+  {
+    title: "Pulse Analytics",
+    category: "SaaS Dashboard",
+    stack: ["React", "TanStack", "Supabase"],
+    grad: "from-secondary/40 via-primary/30 to-transparent",
+  },
+  {
+    title: "FinDesk",
+    category: "Fintech Web App",
+    stack: ["Vue", "Laravel", "MySQL"],
+    grad: "from-primary/40 via-accent/20 to-transparent",
+  },
+  {
+    title: "EduFlow",
+    category: "Learning Platform",
+    stack: ["Next.js", "tRPC", "Prisma"],
+    grad: "from-secondary/40 via-accent/20 to-transparent",
+  },
+  {
+    title: "FreshMart",
+    category: "Grocery Mobile App",
+    stack: ["Flutter", "Firebase"],
+    grad: "from-accent/40 via-secondary/30 to-transparent",
+  },
+];
+---
+
+<section id="portfolio" class="relative py-24 md:py-32">
+  <div class="max-w-7xl mx-auto px-6">
+    <SectionHeading
+      eyebrow="Portfolio"
+      description="Beberapa project yang sudah kami bangun bersama klien dari berbagai industri."
+    >
+      Karya yang <span class="text-gradient">berbicara</span>
+    </SectionHeading>
+
+    <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {
+        projects.map((p, i) => (
+          <Reveal delay={(i % 3) * 100} as="article">
+            <div class="group card-glow card-glow-hover rounded-2xl overflow-hidden">
+              <div
+                class:list={[
+                  "relative aspect-video bg-linear-to-br bg-surface-elevated overflow-hidden",
+                  p.grad,
+                ]}
+              >
+                <div class="absolute inset-0 grid-bg opacity-60" />
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <span class="font-display text-4xl font-bold text-foreground/80 group-hover:scale-110 transition-transform duration-500">
+                    {p.title
+                      .split(" ")
+                      .map((w) => w[0])
+                      .join("")}
+                  </span>
+                </div>
+                <div class="absolute top-3 right-3 h-9 w-9 rounded-md bg-background/70 backdrop-blur border border-border flex items-center justify-center text-primary opacity-0 group-hover:opacity-100 transition">
+                  <Icon name="externalLink" size={15} />
+                </div>
+              </div>
+              <div class="p-5">
+                <div class="text-xs uppercase tracking-wider text-primary">{p.category}</div>
+                <h3 class="mt-1 font-semibold text-lg">{p.title}</h3>
+                <div class="mt-3 flex flex-wrap gap-2">
+                  {p.stack.map((s) => (
+                    <span class="text-xs px-2 py-1 rounded-md bg-surface-elevated border border-border text-muted-foreground">
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        ))
+      }
+    </div>
+  </div>
+</section>

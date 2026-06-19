@@ -1,0 +1,50 @@
+---
+import Reveal from "./Reveal.astro";
+import SectionHeading from "./SectionHeading.astro";
+import Icon from "@/components/ui/Icon.astro";
+
+const items = [
+  {
+    quote: "YPK delivered our MVP dalam 6 minggu. Kualitas kode dan komunikasinya top — sudah seperti tim internal sendiri.",
+    name: "Rani Pradipta",
+    role: "Founder, Lumen Commerce",
+  },
+  {
+    quote: "Mereka tidak cuma ngoding, tapi ikut mikirin produk. Hasilnya, retention app kami naik 38% setelah redesign.",
+    name: "Aditya Surya",
+    role: "Product Lead, Wanderly",
+  },
+  {
+    quote: "Profesional, responsif, dan hasilnya bersih. Kami akan tetap pakai YPK untuk project-project berikutnya.",
+    name: "Maria Hutapea",
+    role: "CTO, FinDesk",
+  },
+];
+---
+
+<section id="testimonials" class="relative py-24 md:py-32">
+  <div class="max-w-7xl mx-auto px-6">
+    <SectionHeading eyebrow="Testimonials">
+      Dipercaya oleh <span class="text-gradient">tim hebat</span>
+    </SectionHeading>
+
+    <div class="mt-16 grid md:grid-cols-3 gap-6">
+      {
+        items.map((t, i) => (
+          <Reveal delay={i * 100}>
+            <figure class="card-glow card-glow-hover rounded-2xl p-6 h-full flex flex-col">
+              <Icon name="quote" size={28} class="text-primary/70" />
+              <blockquote class="mt-4 text-sm text-foreground/90 leading-relaxed">
+                "{t.quote}"
+              </blockquote>
+              <figcaption class="mt-6 pt-4 border-t border-border/60">
+                <div class="font-semibold text-sm">{t.name}</div>
+                <div class="text-xs text-muted-foreground">{t.role}</div>
+              </figcaption>
+            </figure>
+          </Reveal>
+        ))
+      }
+    </div>
+  </div>
+</section>

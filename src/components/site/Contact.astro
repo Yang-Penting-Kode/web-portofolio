@@ -1,0 +1,76 @@
+---
+import Reveal from "./Reveal.astro";
+import SectionHeading from "./SectionHeading.astro";
+import Icon from "@/components/ui/Icon.astro";
+
+const channels = [
+  {
+    icon: "mail",
+    label: "Email",
+    value: "yangpentingkode@gmail.com",
+    href: "mailto:yangpentingkode@gmail.com",
+  },
+  {
+    icon: "messageCircle",
+    label: "WhatsApp",
+    value: "+62 881 0103 01313",
+    href: "https://wa.me/62881010301313",
+  },
+  {
+    icon: "instagram",
+    label: "Instagram",
+    value: "@yangpentingkode",
+    href: "https://instagram.com/yangpentingkode",
+  },
+] as const;
+---
+
+<section id="contact" class="relative py-24 md:py-32">
+  <div class="max-w-7xl mx-auto px-6">
+    <SectionHeading
+      eyebrow="Contact"
+      description="Pilih channel yang paling nyaman buatmu. Kami biasanya membalas dalam 1×24 jam."
+    >
+      Mari <span class="text-gradient">ngobrol</span>
+    </SectionHeading>
+
+    <div class="mt-16 grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+      {
+        channels.map((c, i) => (
+          <Reveal delay={i * 100}>
+            <a
+              href={c.href}
+              target={c.href.startsWith("http") ? "_blank" : undefined}
+              rel="noreferrer"
+              class="group card-glow card-glow-hover rounded-2xl p-6 flex flex-col items-center text-center h-full"
+            >
+              <div class="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 border border-primary/20 text-primary group-hover:scale-110 transition-transform">
+                <Icon name={c.icon} size={20} />
+              </div>
+              <div class="mt-4 text-xs uppercase tracking-wider text-muted-foreground">
+                {c.label}
+              </div>
+              <div class="mt-1 font-semibold text-foreground group-hover:text-primary transition">
+                {c.value}
+              </div>
+            </a>
+          </Reveal>
+        ))
+      }
+    </div>
+
+    <Reveal delay={200}>
+      <div class="mt-12 text-center">
+        <a
+          href="https://wa.me/62881010301313"
+          target="_blank"
+          rel="noreferrer"
+          class="inline-flex items-center gap-2 rounded-md bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground transition hover:scale-[1.03] shadow-[0_0_40px_-8px_var(--color-cyan-glow)]"
+        >
+          <Icon name="messageCircle" size={16} />
+          Chat via WhatsApp
+        </a>
+      </div>
+    </Reveal>
+  </div>
+</section>

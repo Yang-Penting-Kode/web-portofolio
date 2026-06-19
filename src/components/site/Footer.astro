@@ -1,0 +1,22 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="relative border-t border-border/60 py-12 mt-12">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="flex items-center gap-2">
+      <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-linear-to-br from-primary to-secondary text-primary-foreground font-bold text-sm">
+        YP
+      </span>
+      <div>
+        <div class="font-semibold tracking-tight text-sm">
+          Yang Penting <span class="text-gradient">Kode</span>
+        </div>
+        <div class="text-xs text-muted-foreground">Code with purpose. Ship with pride.</div>
+      </div>
+    </div>
+    <div class="text-xs text-muted-foreground">
+      © {year} Yang Penting Kode. All rights reserved.
+    </div>
+  </div>
+</footer>
